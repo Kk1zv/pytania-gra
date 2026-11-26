@@ -4,6 +4,10 @@ A bluffing trivia party game in Polish, played on phones. Everyone writes a fake
 
 *Blefująca gra towarzyska na telefony: wymyśl fałszywą odpowiedź, zgadnij prawdziwą i nie daj się nabrać.*
 
+> **Disclaimer:** This project was made with AI. The code, design and built-in questions were written with the help of Claude (Anthropic), so they may contain mistakes.
+>
+> *Zastrzeżenie: ten projekt powstał z pomocą AI (Claude od Anthropic). Kod, wygląd i wbudowane pytania mogą zawierać błędy.*
+
 ## How to play
 
 1. One person opens the game and taps **Załóż grę** (start a game). Their phone hosts the game, and they play too.
