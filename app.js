@@ -65,8 +65,11 @@
     el.style.setProperty('--p', Math.max(0, Math.min(1, leftMs / totalMs)).toFixed(3));
     el.classList.toggle('low', leftMs > 0 && leftMs < 10000);
   }
-  // Animacja wejścia nowego ekranu.
+  // Animacja wejścia: tylko raz, na pierwszym ekranie po załadowaniu strony.
+  let introPlayed = false;
   function enter() {
+    if (introPlayed) { app.classList.remove('enter'); return; }
+    introPlayed = true;
     if (reducedMotion()) return;
     app.classList.remove('enter'); void app.offsetWidth; app.classList.add('enter');
   }
@@ -497,6 +500,7 @@
       const code = document.getElementById('code').value.trim().toUpperCase();
       if (code.length === 4) location.search = `?join=${code}${keepOnline()}`;
     };
+    enter();
   }
 
   // ---------- Gospodarz (logika gry) ----------
