@@ -27,7 +27,7 @@ No phones handy? Tap **Dodaj bota** (add a bot) to fill the room with bots that 
 
 It's a static site with no build step and no server code.
 
-- **Online:** open the GitHub Pages link. Phones connect to each other peer-to-peer through [PeerJS](https://peerjs.com/).
+- **Online:** open the GitHub Pages [HERE](https://kk1zv.github.io/pytania-gra/) link. Phones connect to each other peer-to-peer through [PeerJS](https://peerjs.com/).
 - **Locally:**
   ```sh
   python3 -m http.server 8000
