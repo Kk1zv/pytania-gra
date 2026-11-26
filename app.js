@@ -372,7 +372,16 @@
     </div>`;
   }
   function bindSource(root, fn) {
-    root.querySelectorAll('[data-source]').forEach(b => (b.onclick = () => fn(b.dataset.source)));
+    const btns = root.querySelectorAll('[data-source]');
+    btns.forEach(b => (b.onclick = () => {
+      // Od razu zaznacz wybór, zanim gospodarz potwierdzi go przez sieć.
+      btns.forEach(x => {
+        const on = x === b;
+        x.classList.toggle('on', on);
+        x.setAttribute('aria-checked', String(on));
+      });
+      fn(b.dataset.source);
+    }));
   }
   const truthLinkHTML = url => (url ? ` <a href="${esc(url)}" target="_blank" rel="noopener">Hasło w Wikipedii</a>` : '');
 
@@ -1024,7 +1033,7 @@
       const waiting = S.players.filter(x => !x.done).length;
       const typing = S.phase === 'writing' && !done;
       const sig = typing ? '' : JSON.stringify(S.players.map(x => [x.name, x.score, x.done]));
-      const key = [S.phase, S.round, S.reveal ? S.reveal.step : '', !!p, done, error, sig].join('|');
+      const key = [S.phase, S.round, S.reveal ? S.reveal.step : '', !!p, done, error, S.source, S.notice, sig].join('|');
       if (!force && key === viewKey) return;
       viewKey = key;
 
